@@ -7,19 +7,15 @@
  
   <meta charset="utf-8">
 
-  <title>Client | Page Title</title>
+  <title>Drag and drop</title>
   
   <!-- 120 word description for SEO purposes goes here. Note: Usage of lang tag. -->
-  <meta name="description" lang="en" content="">
+  <meta name="description" lang="en" content="Drag and drop website allows you to set your task with it's priorities level.">
   
   <!-- Keywords to help with SEO go here. Note: Usage of lang tag.  -->
-  <meta name="keywords" lang="en" content="">
+  <meta name="keywords" lang="en" content="drag and drop, drag, drop, website, priorities website">
   
-  <!-- View-port Basics: http://mzl.la/VYREaP -->
-  <!-- This meta tag is used for mobile device to display the page without any zooming,
-       so how much the device is able to fit on the screen is what's shown initially. 
-       Remove comments from this tag, when you want to apply media queries to the website. -->
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
   
   <!-- To adhear no-cache for Chrome -->
   <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate" />
@@ -30,18 +26,60 @@
   <link rel="shortcut icon" href="favicon.ico" />
 
   <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
-  <link rel="stylesheet" media="screen" href="css/style.css" >
-
-  <!-- html5shiv aka html5 shim. Supporting HTML5 and CSS for IE browsers less than IE9. -->	
-  <!--[if lt IE 9]>  
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>  
-  <![endif]-->
+  <link rel="stylesheet" media="screen" href="assets/css/style.css" >
 
 </head>
 
 <body>
 
-<script src="js/vendors/jquery-1.8.3.min.js"></script>
-<script src="js/script.js"></script>
+  <div class="container">
+
+    <!-- header starts here -->
+    <header>
+      <div class="wrapper">
+        <h1><a href="#fixme">logo</a></h1>
+        <nav>
+          <ul>
+            <li>start</li>
+            <li>restart</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- header ends here -->
+
+    <!-- main section starts here -->
+    <main>
+
+      <!-- priorities seciton starts here -->
+      <section>
+        <div class="wrapper">
+
+          <h4>set your <span>p</span>riorities</h4>
+
+          <div class="priorities_section">
+
+            <div class="each_priority">
+              <h4>high</h4>
+            </div>
+
+            <div class="each_priority">
+              <h4>medium</h4>
+            </div>
+
+            <div class="each_priority">
+              <h4>low</h4>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+      <!-- priorities section ends here -->
+    </main>
+    <!-- main section ends here -->
+  </div>
+
+<script src="assets/js/script.js"></script>
 </body>
 </html>
