@@ -231,6 +231,12 @@ header nav ul li:nth-child(2){
   margin-right: 10px;
   border-radius: 10px;
   font-weight: 600;
+  user-select: none;
+}
+
+.task_section li:hover{
+  color: cyan;
+  transition: 1s;
 }
 
 .task_section li::first-letter{
