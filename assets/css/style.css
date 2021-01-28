@@ -1,67 +1,5 @@
 @charset "utf-8";
 
-/*------------------------------------------------------------------
-  [Table of contents]
-  * To keep an overview of structure of your code, we make use of table of 
-  * content. Table of content is use display the overall tree structure of your
-  * Layout. 
-  * (NOTE: Remove this commented code once you start developing the code.
-  * Remove the following table of content and add your own as this is just and 
-  * example to let you know)
-
-  1. CSS Reset Code
-    1.1. Eric Meyers Reset/HTML5 display-role reset for older browsers
-    1.2. Clear Fix
-    1.3. Font class declaration
-  2. Body
-  3. Header / .header
-    2.1. Navigation / .navbar
-  4. Content / .content
-    4.1. Left column / .leftcolumn
-    4.2. Right column / .rightcolumn
-    4.3. Sidebar / .sidebar
-      4.3.1. RSS / .rss
-      4.3.2. Search / .search
-      4.3.3. Boxes / .box
-      4.3.4. Sideblog / .sideblog
-      4.3.5. Advertisements / .ads
-  5. Footer / .footer
-  ------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------
-  [Color codes]
-  * Mention the color code you have used in your html document for the respective
-  * elements given as follow. 
-  * (NOTE: Remove this commented code once you start developing the code. 
-  * Remove the following color code and add your own as this is just and 
-  * example to let you know)
-
-  Header nav: #e5e5df (Cararra)
-  Header nav a (hover): #fff (white)
-  Header nav a (active): #fff (white)
--------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------
-  [Typography]
-  * Mention the Typography you have used in your html document for the respective
-  * elements given as follow.
-  * (NOTE: Remove this commented code once you start developing the code. 
-  * Remove the following typography and add your own as this is just and 
-  * example to let you know)
-
-  Header nav a: 16px 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  View-register li a : 12px 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  -------------------------------------------------------------------*/
-
-/* ==========================================================================
-   1. CSS Reset Code
-   ========================================================================== */
-
-/* 1.1. Eric Meyers Reset
-   http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-   ========================================================================== */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
 ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
@@ -153,3 +91,150 @@ sub { bottom: -.25em; }
   font-style: normal;
   font-weight: bold;
 }
+
+/* stylesheet starts here */
+
+.wrapper{
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  width: 860px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* header section starts here */
+
+header .wrapper{
+  box-shadow: 0px 10px 10px 0px #88888833 inset;
+}
+
+.menu{
+  padding: 20px 20px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.menu h1 a{
+  text-decoration: none;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.menu h1 a:hover, .menu ul li:hover{
+  color: cyan;
+  transition: 1s;
+}
+
+header nav ul{
+  display: flex;
+}
+
+header nav ul li{
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+header nav ul li::first-letter{
+  font-size: 20px;
+}
+
+header nav ul li:nth-child(2){
+  padding-left: 10px;
+  margin-left: 10px;
+  border-left: 1px solid #fff;
+}
+/* header section ends here */
+
+/* priorities section starts here */
+
+.priorities .wrapper{
+  padding: 0 30px;
+}
+
+.priorities h4{
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0 20px 20px 20px;
+}
+
+.priorities h4::first-letter{
+  font-size: 18px;
+}
+
+.priorities span{
+  font-size: 18px;
+}
+
+.priorities_section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px 40px 30px;
+}
+
+.each_priority{
+  border: 1px solid black;
+  flex-basis: 29%;
+  text-align: center;
+  border-radius: 10px;
+  height: 300px;
+}
+
+.each_priority h4{
+  position: relative;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 10px 10px 0 0;
+  width: 84.5%;
+}
+
+.each_priority:first-child h4{
+  background-color: red;
+}
+
+.each_priority:nth-child(2) h4{ 
+  background-color: orangered;
+}
+
+.each_priority:nth-child(3) h4{
+  background-color: yellow;
+}
+
+.each_priority h4{
+  padding: 20px;
+}
+
+.task_section{
+  padding: 0 30px;
+}
+
+.task_section ul{
+  display: flex;
+  align-items: center;
+}
+
+.task_section li{
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: black;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase ;
+  margin-right: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.task_section li::first-letter{
+  font-size: 18px;
+}
+
+/* priorities section ends here */
