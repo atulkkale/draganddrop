@@ -8,7 +8,7 @@ function Newelement(id){ // This is constructor function to make object of eleme
   this.taskelement = document.getElementById(id);
 }
 
-var taskone = new Newelement("task1"); // Make the objects of elements
+var taskone = new Newelement("task1"); // Make the objects of elements.
 var tasktwo = new Newelement("task2");
 var taskthree = new Newelement("task3");
 var taskfour = new Newelement("task4");
@@ -18,43 +18,78 @@ var high = document.getElementById("high"); // Get elements in that task will be
 var medium = document.getElementById("medium");
 var low = document.getElementById("low");
 
+var tasklist = document.getElementById("tasklist"); // Store all task parent child ul.
+
 var allelements = [taskone.taskelement,tasktwo.taskelement,taskthree.taskelement,taskfour.taskelement,taskfive.taskelement]; // Stored all object's property in array.
-var proritysecs = [high,medium,low]; // Here we store all priority sections
+var proritysecs = [high,medium,low]; // Here we store all priority sections.
+var count = 1;
 
-allelements.forEach(drag) // Loop each element and pass element to drag function.
+var start = document.getElementById("start");
+start.onclick = startfun;
 
-function drag(item,index){
-  allelements[index].onmousedown = moveelement; // If onmousedown event happen on any element, for that element moveelement function triggers.
-}
+function startfun(){
+  if(count == 1){
+    start.textContent = "Start";
+    count = 2;
 
-function moveelement(e){ // This function makes element movable and follow cursor.
-  var selecteditem = e.target;
-  selecteditem.style.position = "fixed";
-  selecteditem.style.zIndex = 100;
-  document.body.onmousemove = function move(e){
-    var positionx = e.clientX - 50;
-    var positiony = e.clientY - 30;
+    allelements.forEach(drag) // Loop each element and pass element to drag function.
 
-    // console.log(positionx);
-    // console.log(positiony);
-    
-    selecteditem.style.left = positionx + "px";
-    selecteditem.style.top = positiony + "px";
-    selecteditem.onmouseup = function freeelement(){ // When we relese the click then task element will placed inside priority sections or placed on it's initial value.
-      selecteditem.style.position = "static";
-      
-      proritysecs.forEach(drop) // Loop each element and pass element to drop function.
-    
-      function drop(item,index){
-        proritysecs[index].onmouseenter = function placeelement(){ // This function makes element placed an element inside priority sections based on their position.
-          // alert(proritysecs[index].value)
+    function drag(item,index){
+      allelements[index].onmousedown = moveelement; // If onmousedown event happen on any element, for that element moveelement function triggers.
+    }
 
+    function moveelement(e){ // This function makes element movable and follow cursor.
+      if(count != 1){
+        return false;
+      }
+      var mouseconunt = 1; // This variable identify the element is grabed or not for letter use.
+      var selecteditem = e.target;
+      selecteditem.style.position = "fixed";
+      selecteditem.style.zIndex = 100;
+      document.body.onmousemove = function move(e){
+        var positionx = e.clientX - 50;
+        var positiony = e.clientY - 30;
+
+        // console.log(positionx);
+        // console.log(positiony);
+        
+        selecteditem.style.left = positionx + "px";
+        selecteditem.style.top = positiony + "px";
+        selecteditem.onmouseup = function freeelement(){ // When we relese the click then task element will placed inside priority sections or placed on it's initial value.
+          selecteditem.style.position = "static";
+          
+          proritysecs.forEach(drop) // Loop each element and pass element to drop function.
+        
+          function drop(item,index){
+            var mouseinsertcount;
+            
+            proritysecs[index].onmouseover = function placeelement(){ // This function makes element placed an element inside priority sections based on their position.
+              mouseinsertcount = 1; // This variable is for identify the position of task. Whether it's inside the priority sections or not.
+              if(mouseconunt == 1 && mouseinsertcount == 1){ // Both variable is qual to 1 means that task is selected and drop inside priority sections.
+                proritysecs[index].appendChild(selecteditem)
+                selecteditem.classList.add("afterinside");
+                mouseconunt = 0;
+                mouseinsertcount = 0;
+              }
+            }
+            proritysecs[index].onmouseout = function confirmplacement(){
+              mouseinsertcount = 0;
+              if(mouseconunt == 1 && mouseinsertcount == 0){ // Both variable is qual to 1 means that task is selected and drop inside priority sections.
+                tasklist.appendChild(selecteditem)
+                selecteditem.classList.remove("afterinside");
+                mouseconunt = 0;
+                mouseinsertcount = 0;
+              }
+            } 
+          }
         }
       }
-    
-  
-
     }
+
+  }else{
+    start.textContent = "Stop";
+    count = 1;
   }
+  
 }
 
