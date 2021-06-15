@@ -1,9 +1,3 @@
-// var taskone = document.getElementById("task1");
-// var tasktwo = document.getElementById("task2");
-// var taskthree = document.getElementById("task3");
-// var taskfour = document.getElementById("task4");
-// var taskfive = document.getElementById("task5");
-
 function Newelement(id){ // This is constructor function to make object of elements by it's id.
   this.taskelement = document.getElementById(id);
 }
